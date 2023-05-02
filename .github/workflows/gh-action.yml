@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -24,13 +24,13 @@ jobs:
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
   sca:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
-      - name: Setup Python 3.7.15
+      - name: Setup Python 3.11.3
         uses: actions/setup-python@v1
         with: 
-          python-version: 3.7.15
+          python-version: 3.11.3
       - name: Install python deps
         run: |
           python -m pip install --upgrade pip
@@ -48,13 +48,13 @@ jobs:
   dast:
     if: always()
     needs: build
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
-      - name: Setup Python 3.7.15
+      - name: Setup Python 3.11.3
         uses: actions/setup-python@v1
         with: 
-          python-version: 3.7.15
+          python-version: 3.11.3
       - name: Install python deps
         run: |
           python -m pip install --upgrade pip
