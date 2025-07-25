@@ -41,7 +41,7 @@ jobs:
         run: |
           pyraider check -f ./app/requirements.txt -e json ./app/result.json
       - name: "Upload Report"
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: pyraider-scan-report
           path: ./app/result.json
@@ -94,7 +94,7 @@ jobs:
           cd ./tests/
           python e2e_zap.py
       - name: "Upload Report"
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: zap-scan-report
           path: ./tests/zap-report.json
